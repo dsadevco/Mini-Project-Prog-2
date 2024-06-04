@@ -1,0 +1,2 @@
+staff,7,iphone se,499.00,a14 bionic processor,5
+staff,8,Acer,1500.00,Gaming powerful experience,5

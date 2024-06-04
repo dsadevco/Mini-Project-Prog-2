@@ -1,0 +1,6 @@
+1,Malong bags,150.00,Mandaya,3
+3,Rings,50.00,Handmdate- made by wood,5
+5,mouse,1000.00,lightweight,5
+6,laptop,15000.00,gaming,5
+7,iphone se,499.00,a14 bionic processor,5
+8,Acer,1500.00,Gaming powerful experience,5
