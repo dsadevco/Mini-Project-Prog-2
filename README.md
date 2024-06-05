@@ -2,7 +2,8 @@ Davao Oriental Dagmay Weavers Directory and Output Monitoring Portal
 
 Welcome to the Davao Oriental Dagmay Weavers Directory and Output Monitoring Portal! This system is designed to help manage the inventory, sales, and staff activities of a Dagmay weaving business.
 
-Features
+**Features
+
 User Management:
     - Secure login and signup for customers, staff, and administrators.
     - Different access levels and functionalities based on user roles.
