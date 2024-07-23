@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+
 public class DagmayWeaverMonitorouput {
     static boolean loggedIn = false;
     static String loggedInUser = "";
@@ -431,6 +432,8 @@ public class DagmayWeaverMonitorouput {
                 loggedIn = true;
                 loggedInUser = username;
                 loggedInUserRole = user.role;
+
+                System.out.println("Successfully logged in as " + loggedInUserRole);
                 return true;
             }
         }
@@ -636,15 +639,76 @@ public class DagmayWeaverMonitorouput {
         login();
     }
 
+    static ArrayList<String> usernames = new ArrayList<>(); // ArrayList to store usernames
+    static ArrayList<String> passwords = new ArrayList<>(); // ArrayList to store passwords
+    static ArrayList<String> roles = new ArrayList<>();
+
     static void saveUsers() {
         try (FileWriter writer = new FileWriter("UserCredentials.txt")) {
             for (DagmayWeaverMonitorouput.User user : users) {
                 writer.write(String.format("%s,%s,%s,%s\n", user.username, user.password, user.email, user.role));
             }
+            writeUserCredentialsToCSV("UserCredentials.csv");
+
+            // 2. Write to JSON
+            writeUserCredentialsToJSON("UserCredentials.json");
+
+            // 3. Write to XML
+            writeUserCredentialsToXML("UserCredentials.xml");
+
+
         } catch ( IOException e ) {
             System.out.println("Error: Failed to save users. " + e.getMessage());
         }
     }
+
+
+    // Method to save users to CSV
+    static void writeUserCredentialsToCSV(String filename) {
+        try (FileWriter writer = new FileWriter(filename)) {
+            for (DagmayWeaverMonitorouput.User user : users) {
+                writer.write(String.format("%s,%s,%s,%s\n", user.username, user.password, user.email, user.role));
+            }
+        } catch (IOException e) {
+            System.out.println("Error writing to CSV file: " + e.getMessage());
+        }
+    }
+
+    // Method to save users to JSON
+    static void writeUserCredentialsToJSON(String filename) {
+        try (FileWriter writer = new FileWriter(filename)) {
+            writer.write("[\n");
+            for (int i = 0; i < users.size(); i++) {
+                DagmayWeaverMonitorouput.User user = users.get(i);
+                writer.write(String.format("  {\"username\": \"%s\", \"password\": \"%s\", \"email\": \"%s\", \"role\": \"%s\"}\n",
+                        user.username, user.password, user.email, user.role));
+                if (i < users.size() - 1) {
+                    writer.write(",\n");
+                }
+            }
+            writer.write("]");
+        } catch (IOException e) {
+            System.out.println("Error writing to JSON file: " + e.getMessage());
+        }
+    }
+
+    // Method to save users to XML
+    static void writeUserCredentialsToXML(String filename) {
+        try (FileWriter writer = new FileWriter(filename)) {
+            writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+            writer.write("<users>\n");
+            for (DagmayWeaverMonitorouput.User user : users) {
+                writer.write(String.format("  <user username=\"%s\" password=\"%s\" email=\"%s\" role=\"%s\" />\n",
+                        user.username, user.password, user.email, user.role));
+            }
+            writer.write("</users>\n");
+        } catch (IOException e) {
+            System.out.println("Error writing to XML file: " + e.getMessage());
+        }
+    }
+
+
+
 
     public static void listDagmayItems(String role) {
         System.out.println("\t+---------------------------------------+");
@@ -949,7 +1013,7 @@ public class DagmayWeaverMonitorouput {
 
     // Method to save sales records to a file
     static void saveSalesRecords() {
-        try (FileWriter writer = new FileWriter("SalesRecords.txt")) {
+        try (FileWriter writer = new FileWriter("SalesRecords.csv")) {
             for (Sale sale : salesRecords) {
                 // Format the sale data for writing to the file
                 writer.write(String.format("%s,", sale.customerName));
@@ -968,7 +1032,7 @@ public class DagmayWeaverMonitorouput {
     static void loadSalesRecords() {
         salesRecords.clear(); // Clear the list before loading
 
-        try (Scanner scanner = new Scanner(new File("SalesRecords.txt"))) {
+        try (Scanner scanner = new Scanner(new File("SalesRecords.csv"))) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] parts = line.split(",");
@@ -1507,4 +1571,3 @@ public class DagmayWeaverMonitorouput {
 
 
 }
-
