@@ -185,7 +185,7 @@ public class DagmayWeaverMonitorouput {
                         scanner.nextLine();
 
                         if (subChoice == 1) {
-                             // Create a new Scanner for this section
+                            // Create a new Scanner for this section
                             System.out.print("Enter item name: ");
                             String itemName = scanner.nextLine();
 
@@ -727,7 +727,7 @@ public class DagmayWeaverMonitorouput {
 
             // Display price only for customers
             if (role.equalsIgnoreCase("customer")) {
-                System.out.println("\t| Price: " + item.price);
+                System.out.println("\t| Price: ₱ " + item.price);
             }
 
             System.out.println("\t| Description: " + item.description);
@@ -772,7 +772,7 @@ public class DagmayWeaverMonitorouput {
 
         // Get item price
         while (true) {
-            System.out.print("\t| Enter item price: ");
+            System.out.print("\t| Enter item price: ₱ ");
             if (scanner.hasNextDouble()) {
                 price = scanner.nextDouble();
                 if (price > 0) {
@@ -890,7 +890,7 @@ public class DagmayWeaverMonitorouput {
         System.out.println("\t| Current Item Details:");
         System.out.println("\t| Item ID: " + itemToUpdate.itemId);
         System.out.println("\t| Name: " + itemToUpdate.itemName);
-        System.out.println("\t| Price: " + itemToUpdate.price);
+        System.out.println("\t| Price: ₱ " + itemToUpdate.price);
         System.out.println("\t| Description: " + itemToUpdate.description);
         if (loggedInUserRole.equalsIgnoreCase("staff") || loggedInUserRole.equalsIgnoreCase("admin")) {
             System.out.println("\t| Stock: " + itemToUpdate.stock);
@@ -1104,7 +1104,7 @@ public class DagmayWeaverMonitorouput {
         System.out.println("\t| Item to be deleted:");
         System.out.println("\t| Item ID: " + itemToDelete.itemId);
         System.out.println("\t| Name: " + itemToDelete.itemName);
-        System.out.println("\t| Price: " + itemToDelete.price);
+        System.out.println("\t| Price: ₱ " + itemToDelete.price);
         System.out.println("\t| Description: " + itemToDelete.description);
         if (loggedInUserRole.equalsIgnoreCase("staff") || loggedInUserRole.equalsIgnoreCase("admin")) {
             System.out.println("\t| Stock: " + itemToDelete.stock);
@@ -1181,7 +1181,7 @@ public class DagmayWeaverMonitorouput {
             System.out.printf("- Staff: %s\n", item.staffName);
             System.out.printf("  - Item ID: %d\n", item.itemId);
             System.out.printf("  - Name: %s\n", item.itemName);
-            System.out.printf("  - Price: $%.2f\n", item.price);
+            System.out.printf("  - Price: ₱ %.2f\n", item.price);
             System.out.printf("  - Description: %s\n", item.description);
             System.out.printf("  - Stock: %d\n", item.stock);
             System.out.println();
@@ -1213,7 +1213,7 @@ public class DagmayWeaverMonitorouput {
                 totalSalesValue += itemPrice * quantity;
             }
         }
-        System.out.printf("\nTotal Sales Value: $%.2f\n", totalSalesValue);
+        System.out.printf("\nTotal Sales Value: ₱ %.2f\n", totalSalesValue);
     }
 
     // Method to view the shopping cart
@@ -1301,7 +1301,7 @@ public class DagmayWeaverMonitorouput {
             if (amountPaid >= totalPrice) {
                 // Calculate change
                 double change = amountPaid - totalPrice;
-                System.out.println("Thank you for your purchase! Your change is: $" + change);
+                System.out.println("Thank you for your purchase! Your change is: ₱" + change);
                 // Record the sale
                 recordSale(loggedInUser, convertShoppingCartToSaleItems());
                 // Clear the shopping cart

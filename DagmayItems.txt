@@ -1,6 +1,5 @@
-1,Malong bags,150.00,Mandaya,3
-3,Rings,50.00,Handmdate- made by wood,5
-5,mouse,1000.00,lightweight,5
-6,laptop,15000.00,gaming,5
-7,iphone se,499.00,a14 bionic processor,5
-8,Acer,1500.00,Gaming powerful experience,5
+1,Dagmay Abaca Cloth,1800.00,Handwoven using abaca fibers,10
+2,Dagmay Inabal Shawl,1500.00,This shawl is intricately woven by the Bagobo-Tagabawa tribe,10
+3,Dagmay T'nalak Blanket,1300.00,A larger piece featuring the T'nalak patterns of the T'boli tribe,10
+4,Dagmay Yakan Table Runner,500.00,Handcrafted by the Yakan tribe,10
+5,Dagmay Malong,1000.00,A versatile tube-like cloth woven by the B'laan tribe,10
